@@ -13,6 +13,9 @@ namespace Unity.FPS.Game
 
         [Header("Win")] [Tooltip("This string has to be the name of the scene you want to load when winning")]
         public string WinSceneName = "WinScene";
+        [Header("Level 2")] [Tooltip("This string has to be the name of the scene you want to load for the second level, if there is one")]
+        public string SecondarySceneName = "SecondaryScene";
+        
 
         [Tooltip("Duration of delay before the fade-to-black, if winning")]
         public float DelayBeforeFadeToBlack = 4f;
@@ -76,7 +79,16 @@ namespace Unity.FPS.Game
             EndGameFadeCanvasGroup.gameObject.SetActive(true);
             if (win)
             {
-                m_SceneToLoad = WinSceneName;
+                // testing
+                string currentScene = SceneManager.GetActiveScene().name;
+                if (currentScene == SecondarySceneName)
+                {
+                    m_SceneToLoad = "MainScene";
+                }
+                else
+                {
+                    m_SceneToLoad = SecondarySceneName;
+                }
                 m_TimeLoadEndGameScene = Time.time + EndSceneLoadDelay + DelayBeforeFadeToBlack;
 
                 // play a sound on win
