@@ -50278,7 +50278,7 @@ MonoBehaviour:
   - {fileID: 118365911}
   - {fileID: 1151254480}
   bossSpawnPoint: {fileID: 440717613}
-  timeBetweenSpawns: 2
+  timeBetweenSpawns: 3
   timeToSurvive: 180
 --- !u!1 &1138182816
 GameObject:
